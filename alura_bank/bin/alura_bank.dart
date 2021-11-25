@@ -1,16 +1,31 @@
 void main() {
   ContaCorrente contaCorrente1 = ContaCorrente();
   ContaCorrente contaCorrente2 = ContaCorrente();
-  contaCorrente1.titular = 'Amanda';
-  contaCorrente2.titular = 'Thiago';
+  contaCorrente1.titular.nome = 'Amanda';
+  contaCorrente1.titular.cpf = '123.456.789-00';
+  contaCorrente1.titular.profissao = 'Programadora';
 
-  contaCorrente2.chequeEspecial = -200;
+  contaCorrente2.titular.nome = 'Thiago';
+  contaCorrente2.titular.cpf = '123.456.789-10';
+  contaCorrente2.titular.profissao = 'Programador';
 
-  bool sucesso = contaCorrente1.transferencia(20, contaCorrente2);
+  //ou
+  Cliente amanda = Cliente();
+  amanda.nome = 'Amanda';
+  amanda.cpf = '123.456.789-00';
+  amanda.profissao = 'Programadora';
+
+  contaCorrente1.titular = amanda;
+}
+
+class Cliente {
+  late String nome;
+  late String cpf;
+  late String profissao;
 }
 
 class ContaCorrente {
-  late String titular;
+  late Cliente titular;
   late int agencia = 145;
   late int conta;
   late double saldo = 20.0;
