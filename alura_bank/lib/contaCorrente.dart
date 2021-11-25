@@ -1,26 +1,25 @@
 import 'cliente.dart';
 
 class ContaCorrente {
+  ContaCorrente(int agencia, this.conta) {
+    if (agencia > 0) {
+      _agencia = agencia;
+      totalDeContasCorrentes++;
+    }
+  }
+
   late Cliente titular;
-  int agencia = 145;
+  int _agencia = 145;
   late int conta;
   double _saldo = 20.0;
   double chequeEspecial = -100;
+  static int totalDeContasCorrentes = 0; // variável estática da própria classe, pertence somente a classe Conta Corrente não ao objeto
 
-   double get saldo => _saldo;
-   set saldo( double novoValor) =>{_saldo = novoValor};
+  double get saldo => _saldo;
+  set saldo(double novoValor) => {_saldo = novoValor};
 
-  // double get saldo {
-  //   return _saldo;
-  // }
-
-  // set saldo (double novoSaldo) {
-  //   if (novoSaldo >= chequeEspecial) {
-  //     _saldo = novoSaldo;
-  //   } else {
-  //     print('Erro, saldo mesmo com cheque especial, insuficiente');
-  //   }
-  // }
+  int get agencia => _agencia;
+  set agencia(int novaAgencia) => {if (novaAgencia > 0) _agencia = novaAgencia};
 
   bool saque(double valorDoSaque) {
     if (!verificaSaldo(valorDoSaque)) {
