@@ -1,34 +1,48 @@
 void main() {
   ContaCorrente contaCorrente1 = ContaCorrente();
-  contaCorrente1.titular = "Felipe";
-  contaCorrente1.agencia = 123;
-  contaCorrente1.conta = 1;
-
   ContaCorrente contaCorrente2 = ContaCorrente();
-  contaCorrente2.titular = "Felipe";
-  contaCorrente2.agencia = 123;
-  contaCorrente2.conta = 1;
 
-  print(contaCorrente1 == contaCorrente2);
-  print(contaCorrente1.titular == contaCorrente2.titular);
-  print(contaCorrente1.agencia == contaCorrente2.agencia);
-  print(contaCorrente1.conta == contaCorrente2.conta);
-  print(contaCorrente1.hashCode == contaCorrente2.hashCode);
-  contaCorrente1 = contaCorrente2;
-  print(contaCorrente1.hashCode == contaCorrente2.hashCode);
+  // double saqueDaAmanda = 30.0;
+  // double saqueDoThiago = 90.0;
+  contaCorrente1.titular = 'Amanda';
+  contaCorrente1.titular = 'Thiago';
+
+  print('Saldo da ${contaCorrente1.titular}:${contaCorrente1.saldo} ');
+  print('Saldo da ${contaCorrente2.titular}:${contaCorrente2.saldo} ');
+  contaCorrente1.saque(80.0);
+  contaCorrente2.saque(130.0);
+  print('Saldo da ${contaCorrente1.titular}:${contaCorrente1.saldo} ');
+  print('Saldo da ${contaCorrente2.titular}:${contaCorrente2.saldo} ');
+
+  // print('Saldo da ${contaCorrente1.titular}:${contaCorrente1.saldo} ');
+  // if (contaCorrente1.saldo - saqueDaAmanda < -100) {
+  //   print('Sem saldo Suficiente');
+  // } else {
+  //   print('Sacando $saqueDaAmanda reais');
+  //   contaCorrente1.saldo -= saqueDaAmanda;
+  // }
+
+  // print('Saldo da ${contaCorrente2.titular}:${contaCorrente2.saldo} ');
+  // if (contaCorrente2.saldo - saqueDoThiago < -100) {
+  //   print('Sem saldo Suficiente');
+  // } else {
+  //   print('Sacando $saqueDoThiago reais');
+  //   contaCorrente2.saldo -= saqueDoThiago;
+  // }
 }
 
 class ContaCorrente {
   late String titular;
   late int agencia = 145;
   late int conta;
-  late double saldo = 0.0;
+  late double saldo = 20.0;
+
+  void saque(double valorDoSaque) {
+    if (saldo - valorDoSaque < -100) {
+      print('Sem saldo Suficiente');
+    } else {
+      print('Sacando $valorDoSaque reais');
+      saldo -= valorDoSaque;
+    }
+  }
 }
-
-
- // print("Titular:${contaCorrenteThiago.titular}");
-  // print("Agência:${contaCorrenteThiago.agencia}");
-  // print("Conta:${contaCorrenteThiago.conta}");
-  // print("Saldo:${contaCorrenteThiago.saldo}");
-  // contaCorrenteThiago.saldo += 50.0;
-  // print("Novo saldo:${contaCorrenteThiago.saldo}");
