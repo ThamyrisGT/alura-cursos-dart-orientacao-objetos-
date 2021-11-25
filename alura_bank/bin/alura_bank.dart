@@ -8,15 +8,19 @@ void main() {
   contaCorrente1.titular.cpf = '123.456.789-00';
   contaCorrente1.titular.profissao = 'Programadora';
 
-  contaCorrente2.titular.nome = 'Thiago';
-  contaCorrente2.titular.cpf = '123.456.789-10';
-  contaCorrente2.titular.profissao = 'Programador';
-
   //ou
   Cliente amanda = Cliente();
   amanda.nome = 'Amanda';
   amanda.cpf = '123.456.789-00';
   amanda.profissao = 'Programadora';
-
   contaCorrente1.titular = amanda;
+
+  // ou "cascata"
+
+  Cliente thiago = Cliente()
+    ..nome = 'Thiago'
+    ..cpf = '123.456.789-10'
+    ..profissao = 'Programador';
+
+    contaCorrente2.titular = thiago;
 }
